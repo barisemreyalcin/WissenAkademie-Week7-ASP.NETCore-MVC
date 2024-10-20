@@ -1,0 +1,77 @@
+﻿@{
+	ViewData["Title"] = "Home Page";
+}
+
+@* <div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div> *@
+
+@* <%%> view engine (old) *@
+
+<h1>Razor Engine</h1>
+
+@{
+	string FirstName = "Jax";
+	string LastName = "Teller";
+	int Age = 28;
+}
+
+<br />
+
+<p><b>Calling Variables with Razor Engine</b></p>
+<p><b>@FirstName @LastName</b> - @Age</p>
+
+<br />
+<hr />
+
+@* Conditional Statements *@
+
+@{
+	int num = 28;
+}
+
+@{
+	if (num < Age)
+	{
+		<span>num(@num) value is less than age value <b>@Age</b>.</span>
+	}
+	else if (num > Age)
+	{
+		<span>num(@num) value is bigger than age value <b>@Age</b>.</span>
+	}
+	else
+	{
+		<span>num(@num) value is equal to age value(<b>@Age</b>).</span>
+	}
+}
+
+<br />
+<hr />
+
+@* Loops and Collections *@
+@* for *@
+@{
+	string[] tellers = { "John", "Gemma", "Jax" };
+	string surname = "Teller";
+}
+
+@for (int i = 0; i < tellers.Length; i++)
+{
+	<p>@tellers[i] <b>@surname</b></p>
+}
+
+
+@* foreach *@
+<ul class="list-group">
+	@foreach (var item in tellers)
+	{
+		<li class="list-group-item">@item <b>@surname</b></li>
+	}
+</ul>
+
+<br />
+<hr />
+
+@* Ternary Operator *@
+@(10 > 11 ? "10 is bigger than 11" : "10 is not bigger than 11")
